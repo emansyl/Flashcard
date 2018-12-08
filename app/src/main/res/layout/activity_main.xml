@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/backgrd"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/Green">
 
 
     <TextView
@@ -17,9 +19,10 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:text="@string/august_6th_1962"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="36sp"
         android:visibility="invisible"
+        android:background="@android:color/background_dark"
          />
 
 
@@ -29,13 +32,62 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/Green"
         android:gravity="center"
         android:text="@string/when_did_jamaica_become_an_independent_nation"
-        android:textColor="@android:color/black"
-        android:textSize="36sp"
-        />
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/CorrectAnswer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="224dp"
+        android:background="@color/Yellow"
+        android:gravity="center"
+        android:text="@string/august_6th_19621"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/Wronganswer1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/CorrectAnswer"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="140dp"
+        android:background="@color/Yellow"
+        android:gravity="center"
+        android:text="@string/august_7th_1962"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/Wronganswer2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/CorrectAnswer"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="56dp"
+        android:background="@color/Yellow"
+        android:gravity="center"
+        android:text="@string/august_6th_1961"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/r" />
 
 
 </RelativeLayout>
