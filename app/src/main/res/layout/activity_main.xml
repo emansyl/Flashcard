@@ -18,12 +18,12 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="13dp"
         android:gravity="center"
-        android:text="@string/august_6th_1962"
+        android:text="@string/string2"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         android:visibility="invisible"
         android:background="@android:color/background_dark"
-         />
+         /><!--Flashcard Answer-->
 
 
     <TextView
@@ -36,10 +36,9 @@
         android:layout_marginTop="23dp"
         android:background="@color/Green"
         android:gravity="center"
-        android:text="@string/when_did_jamaica_become_an_independent_nation"
+        android:text="@string/string1"
         android:textColor="@android:color/white"
-        android:textSize="36sp" />
-
+        android:textSize="36sp" /><!--Flashcard Question-->
     <TextView
         android:id="@+id/CorrectAnswer"
         android:layout_width="300dp"
@@ -81,13 +80,13 @@
         android:textColor="@android:color/white"
         android:textSize="36sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="39dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/Addbutton"
+        android:layout_width="41dp"
+        android:layout_height="49dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="@string/r" />
-
+        android:contentDescription="@string/add_button"
+        app:srcCompat="@drawable/ic_iconmonstr_plus_5" />
 
 </RelativeLayout>
