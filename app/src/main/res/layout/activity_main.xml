@@ -39,7 +39,7 @@
         android:text="@string/string1"
         android:textColor="@android:color/white"
         android:textSize="36sp" /><!--Flashcard Question-->
-    <TextView
+    <!--<TextView
         android:id="@+id/CorrectAnswer"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -78,15 +78,28 @@
         android:gravity="center"
         android:text="@string/august_6th_1961"
         android:textColor="@android:color/white"
-        android:textSize="36sp" />
+        android:textSize="36sp" />-->
 
     <ImageView
         android:id="@+id/Addbutton"
-        android:layout_width="41dp"
-        android:layout_height="49dp"
+        android:layout_width="76dp"
+        android:layout_height="80dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="212dp"
         android:contentDescription="@string/add_button"
         app:srcCompat="@drawable/ic_iconmonstr_plus_5" />
+
+    <ImageView
+        android:id="@+id/Next_button"
+        android:layout_width="86dp"
+        android:layout_height="82dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="216dp"
+        android:contentDescription="@string/add_button"
+        app:srcCompat="@drawable/ic_nextbutton" />
 
 </RelativeLayout>

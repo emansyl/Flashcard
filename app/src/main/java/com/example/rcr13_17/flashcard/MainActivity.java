@@ -8,12 +8,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+        allFlashcards = flashcardDatabase.getAllCards();
 
         findViewById(R.id.flash_card_question).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.Wronganswer1).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.Wronganswer1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 findViewById(R.id.Wronganswer1).setBackgroundColor(getResources().getColor(R.color.lightcoral));
@@ -54,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 findViewById(R.id.CorrectAnswer).setBackgroundColor(getResources().getColor(R.color.mediumseagreen));
             }
-        });
+        });*/
 
         findViewById(R.id.backgrd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.CorrectAnswer).setBackgroundColor(getResources().getColor(R.color.Yellow));
+                /*findViewById(R.id.CorrectAnswer).setBackgroundColor(getResources().getColor(R.color.Yellow));
                 findViewById(R.id.Wronganswer2).setBackgroundColor(getResources().getColor(R.color.Yellow));
-                findViewById(R.id.Wronganswer1).setBackgroundColor(getResources().getColor(R.color.Yellow));
+                findViewById(R.id.Wronganswer1).setBackgroundColor(getResources().getColor(R.color.Yellow));*/
                 findViewById(R.id.question_answer).setVisibility(View.INVISIBLE);
                 findViewById(R.id.flash_card_question).setVisibility(View.VISIBLE);
             }
@@ -77,7 +82,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        findViewById(R.id.Next_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // advance our pointer index so we can show the next card
+                currentCardDisplayedIndex++;
+
+                // make sure we don't get an IndexOutOfBoundsError if we are viewing the last indexed card in our list
+                if (currentCardDisplayedIndex > allFlashcards.size() - 1) {
+                    currentCardDisplayedIndex = 0;
+                }
+
+                // set the question and answer TextViews with data from the database
+                ((TextView) findViewById(R.id.flash_card_question)).setText(allFlashcards.get(currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.question_answer)).setText(allFlashcards.get(currentCardDisplayedIndex).getAnswer());
+            }
+        });
+
+
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            ((TextView) findViewById(R.id.flash_card_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.question_answer)).setText(allFlashcards.get(0).getAnswer());
+        }
+
     }
+
+    int currentCardDisplayedIndex = 0;
+
+    List<Flashcard> allFlashcards;
+    FlashcardDatabase flashcardDatabase;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -88,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
             textViewToChange.setText(string1);
             final TextView TextViewToChange = (TextView) findViewById(R.id.question_answer);
             TextViewToChange.setText(string2);
+            flashcardDatabase.insertCard(new Flashcard(string1, string2));
+            allFlashcards = flashcardDatabase.getAllCards();
         }
-
     }
+
 }
