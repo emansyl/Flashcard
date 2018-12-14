@@ -82,11 +82,11 @@
 
     <ImageView
         android:id="@+id/Addbutton"
-        android:layout_width="76dp"
-        android:layout_height="80dp"
+        android:layout_width="86dp"
+        android:layout_height="82dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="33dp"
         android:layout_marginBottom="212dp"
         android:contentDescription="@string/add_button"
         app:srcCompat="@drawable/ic_iconmonstr_plus_5" />
@@ -97,8 +97,8 @@
         android:layout_height="82dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="295dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginBottom="212dp"
         android:contentDescription="@string/add_button"
         app:srcCompat="@drawable/ic_nextbutton" />
 

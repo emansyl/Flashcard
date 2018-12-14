@@ -1,11 +1,15 @@
 package com.example.rcr13_17.flashcard;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -26,6 +30,26 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("button", "pressed");
                 findViewById(R.id.question_answer).setVisibility(View.VISIBLE);
                 findViewById(R.id.flash_card_question).setVisibility(View.INVISIBLE);
+
+                View answerSideView = findViewById(R.id.question_answer);
+                View questionSideView = findViewById(R.id.flash_card_question);
+
+// get the center for the clipping circle
+                int cx = answerSideView.getWidth() / 2;
+                int cy = answerSideView.getHeight() / 2;
+
+// get the final radius for the clipping circle
+                float finalRadius = (float) Math.hypot(cx, cy);
+
+// create the animator for this view (the start radius is zero)
+                Animator anim = ViewAnimationUtils.createCircularReveal(answerSideView, cx, cy, 0f, finalRadius);
+
+// hide the question and show the answer to prepare for playing the animation!
+                questionSideView.setVisibility(View.INVISIBLE);
+                answerSideView.setVisibility(View.VISIBLE);
+
+                anim.setDuration(3000);
+                anim.start();
             }
         });
 
@@ -79,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 MainActivity.this.startActivityForResult(intent,100);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
@@ -97,6 +122,32 @@ public class MainActivity extends AppCompatActivity {
                 // set the question and answer TextViews with data from the database
                 ((TextView) findViewById(R.id.flash_card_question)).setText(allFlashcards.get(currentCardDisplayedIndex).getQuestion());
                 ((TextView) findViewById(R.id.question_answer)).setText(allFlashcards.get(currentCardDisplayedIndex).getAnswer());
+
+                final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.left_out);
+                final Animation rightInAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.right_in);
+
+                leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        // this method is called when the animation first starts
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        // this method is called when the animation is finished playing
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // we don't need to worry about this method
+                    }
+
+                });
+
+                findViewById(R.id.flash_card_question).startAnimation(leftOutAnim);
+                findViewById(R.id.flash_card_question).startAnimation(rightInAnim);
+
+
             }
         });
 
