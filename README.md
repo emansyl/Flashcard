@@ -1,29 +1,28 @@
 ## Jamaican History FlashCards
 
-## Lab 1
+📝 `NOTE` Paste this template at the top of your existing `README.md` file from the last lab.
+
+## Lab 3
 
 ### App Description
-Flash Card app with question on the independence of Jamaica
+
+User is able to add New flash cards and are still saved after the app is closed 
 
 ### App Walk-though
 
-<img src="https://i.imgur.com/CzJ9jTo.gif" width=200><br>
+<img src="https://imgur.com/8l37a80.gif" width=200><br>
+
+`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
 
 ## Required
-- [x] Create New Project in Android Studio
-- [x] Add a view for the front side of the flashcard to display the question
-- [x] Add a view for the back side of the flashcard to display the answer
-- [x] Build in logic to show the answer side when the card is tapped
-- [x] Push code to GitHu
+- [ ] User can create a card and still see their created card when the app is relaunched.
+- [ ] User can create muliple cards and browse through all created cards
+
 ## Optional
-- [x] toggle the flashcard between the question side and the answer side
-- [x] Style the question and answer side of the card to better distinguish between the two sides
-- [x] Add selectable multiple choice answers beneath the card
-   - [x] Change the background color of the multiple choice answers when clicked to indicate whether the question waanswered correctly
-- [x] Further customize and style the card
-
-
-📝 `NOTE` Paste this template at the top of your existing `README.md` file from the last lab.
+- [ ] User can delete a card and no longer see it in their deck anymore
+- [ ] Flashcards are shown in random order instead of the order they were created in
+- [ ] User can edit a card and see the edit saved when they browse through their deck of cards
+- [ ] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
 
 ## Lab 2
 
@@ -49,3 +48,26 @@ Flash Card app with question on the independence of Jamaica
 - [ ] A notification is shown if the card was created successfully
 - [ ] User can also enter multiple choice answers when creating a card
 - [ ] App is further styled and customized!
+
+## Lab 1
+
+### App Description
+Flash Card app with question on the independence of Jamaica
+
+### App Walk-though
+
+<img src="https://i.imgur.com/CzJ9jTo.gif" width=200><br>
+
+## Required
+- [x] Create New Project in Android Studio
+- [x] Add a view for the front side of the flashcard to display the question
+- [x] Add a view for the back side of the flashcard to display the answer
+- [x] Build in logic to show the answer side when the card is tapped
+- [x] Push code to GitHub
+
+## Optional
+- [x] toggle the flashcard between the question side and the answer side
+- [x] Style the question and answer side of the card to better distinguish between the two sides
+- [x] Add selectable multiple choice answers beneath the card
+   - [x] Change the background color of the multiple choice answers when clicked to indicate whether the question waanswered correctly
+- [x] Further customize and style the card
